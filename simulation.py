@@ -20,17 +20,16 @@ def populate_number_loops(k):
         if num not in visited:
             new_loop_size = 0
             visited.add(num)
-            new_loop_size += 1
 
             queue = deque()
             queue.append(num)
             while queue:
                 next_pointer = queue.popleft()
+                new_loop_size += 1
                 next_number = initial_nums[next_pointer-1]
                 if next_number not in visited:
                     queue.append(next_number)
                     visited.add(next_number)
-                    new_loop_size += 1
             if new_loop_size > (k / 2):
                 return False
     
